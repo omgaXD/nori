@@ -1,6 +1,8 @@
 package com.omga.nori;
 
 import com.mojang.logging.LogUtils;
+import com.tterrag.registrate.Registrate;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -15,6 +17,16 @@ import org.slf4j.Logger;
 @SuppressWarnings("unused")
 public class NoriMod
 {
+    public static final String MOD_ID = "nori";
+    public static ResourceLocation RL(String resource) {
+        return new ResourceLocation(MOD_ID, resource);
+    }
+
+    // Registrate object
+    public static final Registrate REGISTRATE = Registrate.create(MOD_ID);
+
+
+
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
