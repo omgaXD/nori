@@ -16,6 +16,14 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 
 
+// setting up Registrate
+jarJar.enable()
+reobf {
+    jarJar { }
+}
+tasks.jarJar.finalizedBy('reobfJarJar')
+
+
 version = '1.0'
 group = 'com.omga.nori' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'nori'
@@ -125,10 +133,19 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    maven { // Registrate
+        url "https://maven.tterrag.com/"
+    }
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.2-40.2.0'
+    minecraft "net.minecraftforge:forge:${mc_version}-40.2.0"
+
+
+    // MC<minecraft_version>-<registrate_version>
+    implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}")
+    // [MC<minecraft_version>,MC<next_minecraft_version>)
+    jarJar(group: 'com.tterrag.registrate', name: 'Registrate', version: "[MC${mc_version},MC${mc_version}]")
 }
 
 jar {
