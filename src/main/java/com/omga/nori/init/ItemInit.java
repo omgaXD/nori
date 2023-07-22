@@ -14,6 +14,13 @@ public class ItemInit {
             .tab(() -> CreativeModeTab.TAB_MATERIALS)
             .register();
 
+    public static final RegistryEntry<Item> NORI_NUGGET= REGISTRATE.item("nori_nugget", Item::new)
+            .tab(() -> CreativeModeTab.TAB_MATERIALS)
+            .register();
+
+
+
+
     public static void load() {
         NoriMod.LOGGER.info("Register items");
     }
