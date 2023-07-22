@@ -2,6 +2,7 @@ package com.omga.nori;
 
 import com.mojang.logging.LogUtils;
 import com.tterrag.registrate.Registrate;
+import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -23,7 +24,7 @@ public class NoriMod
     }
 
     // Registrate object
-    public static final Registrate REGISTRATE = Registrate.create(MOD_ID);
+    public static final NonNullSupplier<Registrate> REGISTRATE = NonNullSupplier.lazy(() -> Registrate.create(MOD_ID));
 
 
 
