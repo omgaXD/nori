@@ -1,6 +1,7 @@
 package com.omga.nori.init;
 
 import com.omga.nori.NoriMod;
+import com.omga.nori.content.NoriAxe;
 import com.omga.nori.content.NoriBucket;
 import com.omga.nori.content.NoriHoe;
 import com.tterrag.registrate.util.entry.ItemEntry;
@@ -33,6 +34,11 @@ public class ItemInit {
 
     public static final ItemEntry<NoriHoe> NORI_HOE = REGISTRATE.item("nori_hoe", (prp) -> new NoriHoe(Tiers.IRON, -2, -1.0F, prp.tab(CreativeModeTab.TAB_TOOLS)))
             .register();
+
+    public static final ItemEntry<NoriAxe> NORI_AXE = REGISTRATE.item("nori_axe", (prp) -> new NoriAxe(Tiers.IRON, -2, -1.0F, prp.tab(CreativeModeTab.TAB_TOOLS)))
+            .register();
+
+
 
     public static void load() {
         NoriMod.LOGGER.info("Register items");
